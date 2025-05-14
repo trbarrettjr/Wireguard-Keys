@@ -1,0 +1,27 @@
+services:
+  Caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - $PWD/conf:/etc/caddy
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - wgkeys-web
+  
+  wgkeys-web:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+volumes:
+  caddy_data:
+  caddy_config:

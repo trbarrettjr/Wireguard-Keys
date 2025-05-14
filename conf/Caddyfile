@@ -1,0 +1,11 @@
+{
+    admin off
+}
+:443 {
+    tls /etc/caddy/cert.crt /etc/caddy/priv.key
+    encode zstd gzip
+    reverse_proxy wgkeys-web:5000 {
+        header_down -server
+        header_up Host {upstream_hostport}
+    }
+}

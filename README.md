@@ -14,3 +14,7 @@ Still a work in progress, may need a lot of TLC.
 ### My Background
 
 I am more of a programmer that moves data around, a lot of it.  My front-end design skills have a lot to be desired, but if you want to touch up the UX, you are more than welcome to.
+
+## Certificate files in the Github Repo
+
+These are just self signed certs that I generated and used Caddy for a front-end server.  You can pick and choose for your deployment.

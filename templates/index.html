@@ -1,36 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>Wireguard KeyGen</title>
         <style>
             body {
-                font-size: 24px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f7;
+                color: #333;         
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+                color: #1d1d1f;
+                cursor: default;
+            }
+            h2 {
+                border-bottom: 1px solid black;
+            }
+            code {
+                font-family: 'Courier New', Courier, monospace;
+                user-select: all;
             }
             .container {
-                margin: 12.5% 25%;
-                font-family: sans-serif
+                background-color: white;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                position: relative;
             }
-            .container a {
-                color: black;
+            .footer {
+                margin-top: 30px;
+                text-align: center;
+                font-size: 14px;
+                color: #666;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>JSON Output</h1>
-            <p>Please enter the number of keys you would like generated for you.</p>
-            <p>Using the following url format: <a href="/3">/3</a> to generate 3 keys</p>
+            <h1>Wireguard KeyGen Tool</h1>
+            <p>Thank you for using the wireguard key generator tool.</p>
             
-            <h1>Man Pages</h1>
-            <p>You can find the man pages to wireguard on <a href="/man">/man</a> or <a href="/wg">/wg</a> or <a href="/wg-quick">/wg-quick</a></p>
+            <h2>Instructions</h2>
             
-            <h1>CSV Output</h1>
-            <p>For CSV output of the keys complete the following:</p>
+            <h3>JSON Output</h3>
+            <p>In the url, please enter the number of keys that you would like.</p>
+            <p>For Example:  If you would like to generate three keys, then place in the url: <code><span id="jsonHostname"></span>/3</code></p>
+            <p>Data will come out as a JSON format.</p>
+            
+            <h3>CSV Output</h3>
+            <p>If you desire a csv output then use /csv/&lt;Number of keys&gt;</p>
+            <p>For Example:  If you would like to generate three keys, then place in the url: <code><span id="csvHostname"></span>/csv/3</code></p>
+            
+            <h2>Man Pages</h2>
+            <p>Man pages for the documents can be found at the following urls.</p>
             <ul>
-                <li>Using the url format: <a href="/csv/3">/csv/3</a> to generate 3 keys</li>
+                <li><a href="/wg">Wireguard</a></li>
+                <li><a href="/wg-quick">wg-quick</a></li>
+            </ul>
+
+            <h2>Credits</h2>
+            <p>All software marks are reserved by their owner.</p>
+
+            <ul>
+                <li><a href="https://www.wireguard.com/" target="_blank" rel="nofollow noopener noreferrer">WireGuard</a> is Jason Donenfeld</li>
+                <li><a href="https://pypi.org/project/PyNaCl/" target="_blank" rel="nofollow noreferrer noopener">PyNACL</a> is reaperhulk</li>
+                <li>Python</li>
+                <li>Flask</li>
             </ul>
         </div>
+        <div class="footer">
+            <p>Developed for a better WireGuard experience.</p>
+        </div>
+        <script>
+            const hostname = window.location.hostname;
+            document.getElementById("jsonHostname").innerHTML = hostname;
+            document.getElementById("csvHostname").innerHTML = hostname;
+        </script>
     </body>
 </html>
